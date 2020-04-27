@@ -31,6 +31,7 @@ pipeline {
             steps{
                 sh './jenkins/scripts/deliver-for-development.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh 'echo "交付服务开启了: localhost:3000"'
             }
         }
     }
