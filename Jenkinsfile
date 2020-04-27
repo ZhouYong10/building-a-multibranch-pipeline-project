@@ -29,9 +29,10 @@ pipeline {
         }
         stage('Deliver'){
             steps{
+                input message: '是否开启交付服务器?'
                 sh './jenkins/scripts/deliver-for-development.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh 'echo "交付服务开启了: localhost:3000"'
+                input message: '是否关闭交付服务?'
             }
         }
     }
